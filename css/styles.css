@@ -1,0 +1,46 @@
+/*see if necessary*/
+body{
+    margin: 0;
+}
+
+.App{
+    font-family: roboto, sans-serif;
+    color: white;
+}
+
+.beer-color{
+    color: #e89212;
+}
+
+.header{
+    display: flex;
+    padding: 1.5%;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.header ul{
+    list-style-type: none;
+    display: flex;
+    gap: 86px;
+    margin-left: auto;
+}
+
+.header li{
+    /*color: gray;*/
+    font-size: 18px;
+}
+
+.header-logo{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.first-content-background{
+    background-image: url("https://images.pexels.com/photos/1301547/pexels-photo-1301547.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+}
+
+.first-content{
+    margin: 0 12%;
+}
