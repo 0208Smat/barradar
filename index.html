@@ -13,31 +13,53 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="./css/style.css">    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/styles.css">    
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-        <script src="./js/maps.js" async defer></script>
     </head>
     <body>        
         <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div class="first-content">
-            <header class="header">
-                <div class="header-logo">
-                    Bar <span class="beer-color">Radar</span>
+        <div class="page-container">
+            <div class="first-content-background">
+                <header class="header">
+                    <div class="my-margins full-width">
+                        <div class="header-logo">
+                            Bar <span class="beer-color">Radar</span>
+                        </div>
+                        <ul>
+                            <li><a href="#Nosotros">Nosotros</a></li>
+                            <li>Contacto</li>
+                            <li>Registrarse</li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="first-content my-margins">
+                    <div class="full-width">
+                        <div class="my-div content-header">
+                            <h2>Bienvenido!</h2>
+                            <h2 class="beer-color">Encontra tu bar ideal cerca de vos</h2>
+                        </div>
+                        <div id="map" class="map" ></div>
+                    </div>
                 </div>
-                <ul>
-                    <li>Nosotros</li>
-                    <li>Contacto</li>
-                    <li>Registrarse</li>
-                </ul>
-            </header>
-            <div className="content">
-                <h1>Bienvenido a BarRadar</h1>
-                <h3>Encontra tu bar ideal cerca de vos</h3>
+                <div id="Nosotros" class=" my-margins">
+                    <div class="full-width">
+                        <div class="my-div flex-column-center">
+                            <h2>¿Quiénes somos?</h2>
+                            <p class="lead my-3 text-center beer-color">Somos una empresa dedicada a ayudarte
+                                 a pasarla bien en los bares de tu preferencia.
+                                Fundada el 20 de diciembre de 2021, estamos comprometidos a darte 
+                                una mano encontrando donde salir </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-    <!-- <div id="map" style="width: 600px; height: 600px;"></div> -->
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js" ></script>
+        <script src="./js/maps.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </body>
 </html>
