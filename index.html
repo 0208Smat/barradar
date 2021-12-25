@@ -16,25 +16,31 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="./css/styles.css">    
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 
+        <script src="https://kit.fontawesome.com/b60f641b24.js" crossorigin="anonymous"></script>
     </head>
     <body>        
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div class="page-container">
             <div class="first-content-background">
-                <header class="header">
+                <header class="header small-margin-bottom">
                     <div class="my-margins full-width">
+                        <img src="images/logo.png">
                         <div class="header-logo">
                             Bar <span class="beer-color">Radar</span>
                         </div>
-                        <ul>
+                        <ul class="horizonal-flex-ul margin-left-auto">
                             <li><a href="#Nosotros">Nosotros</a></li>
-                            <li>Contacto</li>
+                            <li><a href="#Contacto">Contacto</a></li>
                             <li>Registrarse</li>
                         </ul>
                     </div>
                 </header>
-                <div class="first-content my-margins">
+                <div class="first-content my-margins vertical-small-margins">
                     <div class="full-width">
                         <div class="my-div content-header">
                             <h2>Bienvenido!</h2>
@@ -43,19 +49,59 @@
                         <div id="map" class="map" ></div>
                     </div>
                 </div>
-                <div id="Nosotros" class=" my-margins">
+                <div id="Nosotros" class="my-margins vertical-small-margins">
                     <div class="full-width">
                         <div class="my-div flex-column-center">
                             <h2>¿Quiénes somos?</h2>
-                            <p class="lead my-3 text-center beer-color">Somos una empresa dedicada a ayudarte
+                            <p class="lead my-3 text-center beer-color ubuntu">Somos una empresa dedicada a ayudarte
                                  a pasarla bien en los bares de tu preferencia.
                                 Fundada el 20 de diciembre de 2021, estamos comprometidos a darte 
                                 una mano encontrando donde salir </p>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div id="Contacto" class="my-margins vertical-small-margins">
+                    <div class="full-width">
+                        <div class="my-div flex-column-center">
+                            <h2>Ponete en contacto!</h2>
+                            <div class="beer-color flex-row-center align-items-stretch full-width ubuntu">
+                                <ul class="clean-flex-ul flex-column justify-evenly third-width">
+                                    <li class="small-gap flex-row-center flex-align-start">
+                                        <i class="fas fa-phone-alt fa-2x"></i>
+                                            021 222 111
+                                    </li>
+                                    <li class="small-gap flex-row-center flex-align-start">
+                                        <i class="fab fa-whatsapp fa-2x"></i>
+                                            0991 222 754
+                                    </li>
+                                    <li class="small-gap flex-row-center flex-align-start">
+                                        <i class="far fa-envelope fa-2x"></i> 
+                                            barradar_info@gmail.com
+                                    </li>
+                                </ul>
+                                <form class="form-signin third-width">
+                                    <h1 class="h3 mb-3 font-weight-normal">Envianos un correo</h1>
+                                    <label for="inputEmail" class="sr-only">Correo electrónico</label>
+                                    <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required="true">
+                                    <label for="inputPassword" class="sr-only">Asunto</label>
+                                    <input id="inputPassword" class="form-control" placeholder="Asunto" required="true">
+                                    <label for="inputPassword" class="sr-only">Cuerpo</label>
+                                    <textarea id="inputPassword" class="form-control" placeholder="Cuerpo" required="true"></textarea>
+                                    <button class="btn btn-lg btn-primary btn-block beer-background-color" type="submit">Enviar</button>
+                                  </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <footer>
+                <div class="card text-white bg-secondary mb-3 full-width">
+                    <div class="card-body">
+                      <p class="card-text">Derechos Reservados 2021 - 3021 © - BarRadar SRL</p>
+                    </div>
+            </footer>
         </div>
+
         <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js" ></script>
         <script src="./js/maps.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

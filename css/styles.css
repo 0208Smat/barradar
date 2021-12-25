@@ -1,7 +1,11 @@
-/*see if necessary*/
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     margin: 0;
-    font-family: roboto, sans-serif;
+    /*font-family: roboto, sans-serif;*/
+    font-family: 'Bungee', cursive;
     color: white;
 }
 
@@ -10,9 +14,28 @@ a{
     color: inherit;
 }
 
+a:hover {
+    color:gray;
+}
+
+footer .card{
+    color:darkgray !important;
+    border-radius: 0;
+    margin: 0 !important;
+    text-align: center;
+}
+
+.ubuntu{
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .page-container{
     display:flex;
+    flex-direction: column;
+}
 
+.beer-background-color{
+    background-color: #e89212;
 }
 
 .beer-color{
@@ -27,13 +50,8 @@ a{
     margin: 0;
 }
 
-.header ul{
-    list-style-type: none;
-    display: flex;
-    gap: 7vw;
-    margin-left: auto;
-    margin-bottom: 0;
-    align-items: center;
+.header img{
+    height: 8vw;
 }
 
 .header li{
@@ -49,7 +67,7 @@ a{
 }
 
 .first-content-background{
-    background-image: url("https://images.pexels.com/photos/1301547/pexels-photo-1301547.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+    background-image: url("../images/drinks.jpg");
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
@@ -72,8 +90,6 @@ a{
 .my-div{
     background-color: rgba(0, 0, 0, 0.85);
     border-radius: 10px;
-    margin-top: 2%;
-    margin-bottom: 2%;
     padding: 2%;
 }
 
@@ -94,4 +110,65 @@ a{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.flex-row-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-align-start{
+    justify-content: start;
+}
+
+.horizonal-flex-ul{
+    list-style-type: none;
+    display: flex;
+    gap: 7vw;
+    margin-bottom: 0;
+    align-items: center;
+
+    padding-left: 0;
+}
+
+.clean-flex-ul{
+    list-style-type: none;
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.margin-left-auto{
+    margin-left: auto;
+}
+
+.small-gap{
+    display: flex;
+    gap: 1vw;
+}
+
+.align-items-stretch{
+    align-items: stretch;
+}
+
+.justify-evenly{
+    justify-content: space-evenly;
+}
+
+.third-width{
+    width: 33%;
+}
+
+.vertical-small-margins{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.small-margin-bottom{
+    margin-bottom: 2%;   
 }
