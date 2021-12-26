@@ -64,7 +64,7 @@
                 <div id="Contacto" class="my-margins vertical-small-margins">
                     <div class="full-width">
                         <div class="my-div flex-column-center">
-                            <h2>Ponete en contacto!</h2>
+                            <h2 class="center-text">Ponete en contacto!</h2>
                             <div class="beer-color flex-row-center align-items-stretch full-width ubuntu">
                                 <ul class="clean-flex-ul flex-column justify-evenly third-width">
                                     <li class="small-gap flex-row-center flex-align-start">
@@ -80,14 +80,15 @@
                                             barradar_info@gmail.com
                                     </li>
                                 </ul>
-                                <form class="form-signin third-width">
-                                    <h1 class="h3 mb-3 font-weight-normal">Envianos un correo</h1>
+                                <form action="https://formsubmit.co/8smat88@gmail.com" method="POST"class="form-signin third-width">
+                                    <h1 class="h3 mb-3 font-weight-normal center-text">Envianos un correo</h1>
+                                    <input type="hidden" name="_autoresponse" value="Muchas gracias por tu correo! Nos pondremos en contacto ni bien podamos.">
                                     <label for="inputEmail" class="sr-only">Correo electrónico</label>
-                                    <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required="true">
-                                    <label for="inputPassword" class="sr-only">Asunto</label>
-                                    <input id="inputPassword" class="form-control" placeholder="Asunto" required="true">
-                                    <label for="inputPassword" class="sr-only">Cuerpo</label>
-                                    <textarea id="inputPassword" class="form-control" placeholder="Cuerpo" required="true"></textarea>
+                                    <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required="true">
+                                    <!-- <label for="inputSubject" class="sr-only">Asunto</label> -->
+                                    <input name="_subject" type="hidden" id="inputSubject" value="New mail from barradar">
+                                    <label for="inputBody" class="sr-only">Cuerpo</label>
+                                    <textarea name="body" id="inputBody" class="form-control" placeholder="Cuerpo" required="true"></textarea>
                                     <button class="btn btn-lg btn-primary btn-block beer-background-color" type="submit">Enviar</button>
                                   </form>
                             </div>
@@ -102,9 +103,18 @@
                     </div>
             </footer>
         </div>
+        <!-- Back to top button -->
+        <button
+            type="button"
+            class="btn btn-danger btn-floating btn-lg"
+            id="btn-back-to-top"
+            >
+            <i class="fas fa-arrow-up"></i>
+        </button>
 
         <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js" ></script>
         <script src="./js/maps.js"></script>
+        <script src="./js/backToTop.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
