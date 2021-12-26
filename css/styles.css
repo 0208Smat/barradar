@@ -125,7 +125,7 @@ footer .card{
 .horizonal-flex-ul{
     list-style-type: none;
     display: flex;
-    gap: 7vw;
+    gap: 3.5vw;
     margin-bottom: 0;
     align-items: center;
 
@@ -167,6 +167,10 @@ footer .card{
 .vertical-small-margins{
     margin-top: 2%;
     margin-bottom: 2%;
+}
+
+.vertical-medium-margin{
+    margin-top: 7%;
 }
 
 .small-margin-bottom{
