@@ -24,7 +24,9 @@
   },
   "homepage": "https://github.com/0208Smat/barradar#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "pg-promise": "^10.11.1"
   }
 }
