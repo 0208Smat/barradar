@@ -15,7 +15,7 @@ a{
     transition: 0.3s;
 }
 
-a:hover {
+li a:hover {
     color:gray;
     font-size: 20px;
 }

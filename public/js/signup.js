@@ -1,5 +1,6 @@
-const form = document.getElementById("reg-form");
+const functions = require("./frontFunctions.js");
 
+const form = document.getElementById("reg-form");
 form.addEventListener("submit", registerUser);
 
 async function registerUser(event){
@@ -21,18 +22,18 @@ async function registerUser(event){
         })
     }).then((res) => res.json());
 
-    console.log("result: "+result);
     console.log("result.result: "+result.result);//if ok then logic
     if(result.result == "ok"){
-        //new profile
+        //redirect //todo validate session
+        
+        
     }else if(result.result == "user unavailable"){
-        document.getElementById("alertDiv").classList.remove("hide");
-        document.getElementById("alertDiv").classList.add("alert-warning");
-        document.getElementById("alertDiv").innerHTML = "Ya existe un usuario con ese nombre o correo."+ 
-        " ¿Quizás querías <a href='./login.html'>ingresar</a> al sistema?";
-        document.getElementById("alertDiv").focus();
+        functions.showAlert("warning", "Ya existe un usuario con ese nombre o correo."+ 
+        " ¿Quizás querías <a href='./login.html'>ingresar</a> con tu usuario?");
     }else{
-        //unexpected error
+        functions.showAlert("danger", "Ocurrió un error inesperado, favor intente de nuevo más tarde.");
+        console.error("Unexpected result value: "+ result.result);
     }
 
 }
+
