@@ -9,16 +9,15 @@ module.exports.processUserSignUp = (userObject) => {
             .then(async (data) => {    
                 if(data.length == 0){
                     console.log("user available!");
-                    let myHash = bcrypt.hashSync(userObject.password, 5);
+                    console.log("userObject.password: "+userObject.password);
+                    let myHash = await bcrypt.hash(userObject.password, 5);
                     console.log("hash: "+myHash);
-                    //insert user
                     let newUserId = await insertUser(userObject, myHash)
                         .catch((e) => {
                             throw("Error inserting user: "+e);
                         });
                     console.log("after insertUser");
                     console.log("newUserId from await: "+newUserId);
-                    //open session
                     resolve(newUserId);
                 }else{
                     reject("user unavailable");
@@ -32,14 +31,32 @@ module.exports.processUserSignUp = (userObject) => {
       });
 }
 
+module.exports.getUserByEmail = async (email) => {
+    //return new Promise(async (resolve, reject) => {
+        try{
+            console.log("param email: "+email);
+
+            let query = "SELECT id, username, password FROM users WHERE email = $1";
+            console.log("before getting queryAuxResult");
+            let queryAuxResult = await executeQuery(query, [email]);
+
+            console.log("queryAuxResult: "+queryAuxResult);
+            console.log("queryAuxResult.length: "+queryAuxResult.length);
+            console.log("queryAuxResult[0]: "+queryAuxResult[0]);
+            console.log("queryAuxResult[0].username: "+queryAuxResult[0].username);
+            return queryAuxResult[0];
+        }catch{
+
+        }
+     // });
+}
+
 async function insertUser(userObject, hashPassword){
-    //let newUserId;
     return new Promise((resolve, reject) => {
         connection.db.one('INSERT INTO users(username, email, password) VALUES($1, $2, $3) RETURNING id', 
         [userObject.username, userObject.email, hashPassword])
         .then(data => {
             console.log("new user id: "+data.id);
-            //resolve(data.id);
             resolve(data.id);
         })
         .catch(error => {
@@ -47,28 +64,10 @@ async function insertUser(userObject, hashPassword){
             reject(error);
         });
     });
-    //return newUserId;
 }
 
-module.exports.getUserByEmail = async function (email){//dynamise
-    return new Promise((resolve, reject) => {
-        try{
-            let query = "SELECT id, username, password FROM users WHERE email = $1";
-            connection.db.oneOrNone(query, [email])
-                .then(function(data) {
-                    if(data.length == 0){
-                        console.log("user not found");
-                        reject(null);                        
-                    }else{
-                        resolve(data[0]);
-                    }
-                })
-                .catch(function(error) {
-                    console.error("error: "+error);
-                    reject(error);                    
-                });
-        }catch(e){
-            console.error("Error in getUserByEmail: "+e);
-        }
-      });
+async function executeQuery(query,params){//Si falla retorna undefined
+    let queryResult = await connection.db.any(query, params);
+    console.log("queryResult: "+queryResult);
+    return queryResult;
 }

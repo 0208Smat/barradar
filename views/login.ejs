@@ -25,6 +25,11 @@
                 <img class="mb-4" src="../images/logo.png" alt="" width="200" height="200">
             </a>  
             <h1 class="h3 mb-3 fw-normal">Ingreso</h1>
+            <p style="color: red">
+              <% if(messages.error){ %>
+                <%= messages.error %>
+                <% } %>
+            </p>           
         
             <div class="form-floating">
               <input id="email" name="email" type="email" class="form-control"  placeholder="correo@ejemplo.com" autofocus>

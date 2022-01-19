@@ -1,25 +1,24 @@
-const localStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcrypt');
+const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcryptjs');
 
 function initialize(passport, getUserByEmail){
-    const authenticateUser = (email, password, done) => {
-        try{
-            const user = getUserByEmail(email);
+    const authenticateUser = async (inputEmail, inputPassword, done) => {
+        try{//Validate session creation
+            const user = await getUserByEmail(inputEmail);
+            console.log("user after getUserByEmail: "+user);
 
-            if(user == null){
-                return done(null, null, {message: "No user with that email"});
-            }
-
-            if(bcrypt.compareSync(password, user.password)){
+            if(user != null && await bcrypt.compare(inputPassword, user.password)){
+                console.log("password ok");
                 return done(null, user);
             }else{
-                return done(null, null, {message: "Password invalid"});
+                console.log("password invalid!");
+                return done(null, false, {message: "Combinación de correo y contraseña inválida"});
             }
         }catch(e){
-            done(e);
+            return done(e);
         }        
     }
-    passport.use(new LocalStrategy(), authenticateUser);
+    passport.use(new LocalStrategy({usernameField: "email"}, authenticateUser));
     passport.serializeUser((user, done) => {})
     passport.deserializeUser((id, done) => {})
 }
