@@ -9,7 +9,8 @@ const flash = require("express-flash");
 const session = require("express-session");
 const initializePassport = require("./js/passport-config.js");
 initializePassport(passport, 
-  email => {return functions.getUserByEmail(email);}
+  email => {return functions.getUserByEmail(email);},
+  id =>  {return functions.getUserById(id);}
   );
 
 const app = express();
@@ -33,7 +34,11 @@ app.use(passport.session());
 app.set('view-engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render("index.ejs", {name: "Santiago"});
+  console.log("req.user: "+req.user);
+  console.log("req.user.username: "+req.user.username);
+  console.log("req.user.email: "+req.user.email);
+  console.log("req.user.name: "+req.user.name);
+  res.render("index.ejs", {name: req.user.username});
 });
 
 app.get('/login', (req, res) => {

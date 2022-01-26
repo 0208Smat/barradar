@@ -32,23 +32,41 @@ module.exports.processUserSignUp = (userObject) => {
 }
 
 module.exports.getUserByEmail = async (email) => {
-    //return new Promise(async (resolve, reject) => {
-        try{
-            console.log("param email: "+email);
+    try{
+        console.log("param email: "+email);
 
-            let query = "SELECT id, username, password FROM users WHERE email = $1";
-            console.log("before getting queryAuxResult");
-            let queryAuxResult = await executeQuery(query, [email]);
+        let query = "SELECT id, username, email, password FROM users WHERE email = $1";
+        console.log("before getting queryAuxResult");
+        let queryAuxResult = await executeQuery(query, [email]);
 
-            console.log("queryAuxResult: "+queryAuxResult);
-            console.log("queryAuxResult.length: "+queryAuxResult.length);
-            console.log("queryAuxResult[0]: "+queryAuxResult[0]);
-            console.log("queryAuxResult[0].username: "+queryAuxResult[0].username);
-            return queryAuxResult[0];
-        }catch{
+        console.log("queryAuxResult: "+queryAuxResult);
+        console.log("queryAuxResult.length: "+queryAuxResult.length);
+        console.log("queryAuxResult[0]: "+queryAuxResult[0]);
+        console.log("queryAuxResult[0].username: "+queryAuxResult[0].username);
+        return queryAuxResult[0];
+    }catch(e){
+        console.error("Error in getUserByEmail: "+e);
+        throw e;
+    }
+}
 
-        }
-     // });
+module.exports.getUserById = async (id) => {
+    try{
+        console.log("param id: "+id);
+
+        let query = "SELECT id, username, email, password FROM users WHERE id = $1";
+        console.log("before getting queryAuxResult");
+        let queryAuxResult = await executeQuery(query, [id]);
+
+        console.log("queryAuxResult: "+queryAuxResult);
+        console.log("queryAuxResult.length: "+queryAuxResult.length);
+        console.log("queryAuxResult[0]: "+queryAuxResult[0]);
+        console.log("queryAuxResult[0].username: "+queryAuxResult[0].username);
+        return queryAuxResult[0];
+    }catch(e){
+        console.error("Error in getUserById: "+e);
+        throw e;
+    }
 }
 
 async function insertUser(userObject, hashPassword){
@@ -68,6 +86,5 @@ async function insertUser(userObject, hashPassword){
 
 async function executeQuery(query,params){//Si falla retorna undefined
     let queryResult = await connection.db.any(query, params);
-    console.log("queryResult: "+queryResult);
     return queryResult;
 }
